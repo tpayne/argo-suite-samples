@@ -10,9 +10,13 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "./terraform/modules/" # Location of package manifests
+    directory: "./terraform/modules/helmDeploy/" # Location of package manifests
     schedule:
       interval: "weekly"
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "./terraform/modules/k8sDeploy/" # Location of package manifests
+    schedule:
+      interval: "weekly"      
   - package-ecosystem: "terraform" # See documentation for possible values
     directory: "./terraform/GCP/" # Location of package manifests
     schedule:
