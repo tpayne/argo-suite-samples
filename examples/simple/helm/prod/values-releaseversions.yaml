@@ -1,0 +1,14 @@
+# Release stack to deploy on target  
+# Service SBOM for demo
+comp-vend-des-srv-a:
+  containerImage:
+    tag: "1.14.2"
+github-service:
+  containerImage:
+    tag: "c8393a5"
+wsnodejs-deployment:
+  containerImage:
+    tag: "latest"
+wscs-deployment:
+  containerImage:
+    tag: "latest"

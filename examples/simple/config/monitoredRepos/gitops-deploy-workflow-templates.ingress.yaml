@@ -1,0 +1,24 @@
+# Setup the ingress for the service
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gitops-workflow-templates
+  namespace: argocd
+  annotations:
+    # GCP
+    kubernetes.io/ingress.class: "nginx"
+    # Azure
+    #kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /webhooks/gitops-deploy/github-reposrc
+            pathType: Prefix
+            backend:
+              service:
+                name: gitops-deploy-eventsource-svc
+                port:
+                  number: 80
+      # You will need to customise this as appropriate
+      host: frontend.34-28-28-110.nip.io
