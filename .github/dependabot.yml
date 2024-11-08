@@ -6,10 +6,18 @@
 version: 2
 updates:
   - package-ecosystem: "terraform" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "terraform/Azure/" # Location of package manifests
     schedule:
       interval: "weekly"
-
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "terraform/modules/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "terraform" # See documentation for possible values
+    directory: "terraform/GCP/" # Location of package manifests
+    schedule:
+      interval: "weekly"
+      
   # - package-ecosystem: "github-actions"
   #   directory: "/"
   #   schedule:
