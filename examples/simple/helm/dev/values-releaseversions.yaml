@@ -5,7 +5,7 @@ comp-vend-des-srv-a:
     tag: "1.14.2"
 github-service:
   containerImage:
-    tag: "e1aafcc"
+    tag: "3940547"
 wsnodejs-deployment:
   containerImage:
     tag: "latest"
