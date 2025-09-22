@@ -21,4 +21,4 @@ spec:
                 port:
                   number: 80
       # You will need to customise this as appropriate
-      host: frontend.34-28-28-110.nip.io
+      host: frontend.35-184-68-25.nip.io

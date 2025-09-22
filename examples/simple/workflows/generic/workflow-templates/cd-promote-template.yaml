@@ -151,7 +151,7 @@ spec:
               - name: ENVIRONMENT
                 value: "{{inputs.parameters.ENVIRONMENT}}"
               - name: INGRESS_ENDPOINT
-                value: "http://frontend.34-28-28-110.nip.io"
+                value: "http://frontend.35-184-68-25.nip.io"
               - name: COMMAND_OPTS
                 value: "{{inputs.parameters.COMMAND_OPTS}}"
 

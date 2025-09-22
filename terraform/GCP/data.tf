@@ -54,17 +54,6 @@ data "external" "nginx-ip" {
   ]
 }
 
-data "external" "iap-brand" {
-  program = ["bash", "-c", <<EOF
-  gcloud services enable iap.googleapis.com
-  echo "{$(gcloud iap oauth-brands list \
-    --project="${var.project}" \
-    --format json | grep '"name":' | rev | \
-    cut -c2- | rev)}"
-  EOF
-  ]
-}
-
 data "google_client_config" "client" {}
 
 data "google_client_openid_userinfo" "terraform_user" {}
@@ -74,12 +63,6 @@ data "github_ip_ranges" "githubips" {}
 data "github_repository" "autopilot_repo" {
   count     = (strcontains(local.gitops-rep-options[lower(var.gitops_repo)], "https://")) ? 0 : 1
   full_name = local.gitops-rep-options[lower(var.gitops_repo)]
-}
-
-data "local_file" "iap_oauth_client_details" {
-  count      = (fileexists("${path.module}/iap_id.txt")) ? 1 : 0
-  filename   = "${path.module}/iap_id.txt"
-  depends_on = [null_resource.iap]
 }
 
 data "google_project" "project" {

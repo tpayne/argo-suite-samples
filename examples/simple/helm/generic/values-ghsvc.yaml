@@ -18,7 +18,7 @@ github-service:
     pathType: Prefix
     servicePort: app
     hosts:
-      - frontend.34-28-28-110.nip.io
+      - frontend.35-184-68-25.nip.io
     annotations:
       # Azure
       # kubernetes.io/ingress.class: addon-http-application-routing

@@ -16,7 +16,7 @@ terraform {
     }
     helm = {
       source  = "hashicorp/helm"
-      version = ">= 2.10.1"
+      version = "= 2.10.1"
     }
     github = {
       source  = "integrations/github"

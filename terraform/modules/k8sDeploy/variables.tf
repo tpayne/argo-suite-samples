@@ -25,16 +25,6 @@ variable "git_details" {
   sensitive   = true
 }
 
-variable "iap_oauth_client_details" {
-  type = object({
-    clientID     = string
-    clientSecret = string
-  })
-  default     = null
-  description = "IAP auth2 details"
-  sensitive   = true
-}
-
 variable "nginxip" {
   type        = string
   description = "NGINX LB IP"

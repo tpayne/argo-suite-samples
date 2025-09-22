@@ -30,13 +30,14 @@ locals {
     ]
   }
   // GKE configuration
+  // gcloud container get-server-config --region=us-central1 --format="yaml(channels)"
   gke-config = {
-    gke-version    = "1.29.6-gke.1326000"
-    gks-node-count = 2
+    gke-version    = "1.32.6-gke.1060000"
+    gks-node-count = 1
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
-    disk_type = "pd-balanced"
+    disk_type = "pd-standard"
     maintenance_policy = {
       start_time = "2021-05-10T23:00:00Z"
       end_time   = "2021-05-11T23:30:00Z"

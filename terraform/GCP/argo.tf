@@ -51,16 +51,10 @@ module "k8sDeploy" {
     null_resource.deploy_argo,
     data.external.nginx-ip,
     data.external.argotoken,
-    data.local_file.iap_oauth_client_details
   ]
 
   argocd_namespace = local.argocd_namespace
   argocd_token     = data.external.argotoken.result["argotoken"]
   nginxip          = data.external.nginx-ip.result["nginxip"]
   git_details      = var.git_details
-
-  iap_oauth_client_details = {
-    clientID     = yamldecode(data.local_file.iap_oauth_client_details[0].content)["name"]
-    clientSecret = yamldecode(data.local_file.iap_oauth_client_details[0].content)["secret"]
-  }
 }
