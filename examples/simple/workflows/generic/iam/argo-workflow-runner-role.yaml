@@ -28,9 +28,9 @@ metadata:
   name: argo-workflow-runner
   namespace: argocd
 subjects:
-- kind: User
-  name: github-actions-ci
-  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: argorunner
+  namespace: argocd
 roleRef:
   kind: Role
   name: argo-workflow-runner
@@ -76,29 +76,3 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: argorunner
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: executor
-rules:
-  - apiGroups:
-      - argoproj.io
-    resources:
-      - workflowtaskresults
-    verbs:
-      - create
-      - patch
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: executor
-  namespace: argocd
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: executor
-subjects:
-  - kind: ServiceAccount
-    name: default
